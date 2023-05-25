@@ -1,0 +1,244 @@
+GUI:
+
+GUI basically a type of interface that allows users to grahics to interface to OS.
+GUI is created beacuse it is more user-friendly, less complex, and easier to understand.
+Its main goal is to increase effeciency.
+Instead of memorizing commands, user can just click on a button to simply execute
+
+Ex: Microsoft, Windows, Mac.
+
+
+
+PIPE:
+
+The pipe is generally a connection among 2 or more process that are interrelated to each other.
+It is a mechanism that is used for inter process communication using message passing.
+One can easily send information such as the output of one program process to another program process using a pipe
+It can be used when two process want to communicate one way i.e, inter process communication (IPC)
+
+___________________________________________________________________________________________
+
+What are the different kinds of operations that are possible on Semaphore?
+
+There are basically 2 atomic operations that are possible:
+1. Wait()
+2. Signal()
+
+Ex: Binary Semaphore:
+
+mutex = semaphore(1)
+mutex.wait()	# Process 1
+mutex.signal()	# Critical Section
+mutex.wait()	# Process 2
+mutex.signal()	# Critical Section
+
+In this example, if process1 is executing the critical section, process 2 will be blocked at the mutex.wait() operaton until the process1 releases the mutex by calling mutex.signal()
+
+
+____________________________________________________________________________________________
+
+
+What is Bootstap program in OS?
+
+It is generally a program that initializes OS during Start up i.e., it is first code that is executed whenever computer system startups.
+OS is loaded through Bootstrapping process or program commonly know an Booting.
+Overall OS only depends on the bootstrap program to perform and work correctly.
+It is fully stored in boot blocks at a fixed location at the disk.
+It also located the kernal and loads into the main memory after which the programs starts its execution.
+
+
+
+____________________________________________________________________________________________
+
+What is RTOS?
+
+Real Time Operating System (RTO) is an operating system that is used for real time applications.
+It is used in applications where data processing should be done in a fixed and small measure of time.
+It performs much better on tasks that are needed to executed with in a short time.
+It also take care of execution, monitoring and all-controlling process.
+It occupied less memory and consumes fewer Resources.
+
+Types of RTO:
+1. Hard Real-Time 
+2. Firm Real-Time
+3. Soft Real-Time
+
+Main components of RTO are :
+1.Memory Management
+2.User Defined Data Objects & Classes
+3.Fast Dispatch Latency
+4.Function Library
+5.The Sheduler
+6.Symmetric Multiprocessing
+
+_____________________________________________________________________________________________
+
+What is IPC ? What are differen types of IPC mechanisms?
+
+IPC is a mechanism that requires the use of resources line a memory that is shareed between process/thread.
+With IPC, OS allows different processes to communicate with each other.
+It is simple used for exchanging data between multiple threads in one or more programs or processes.
+In this mechanism different processes can communicate with each other with approval of OS
+Different IPC mechanisms:
+1.Pipes
+2.Message Queuing
+3.Semaphores
+4.Socked
+5.Share Memory
+6.Signals
+
+
+_____________________________________________________________________________________________
+
+What is thrashing in OS?
+
+Thrashing is a situation the CPU performs less productive work and swapping or paging work.
+It spends more time swapping or pagging activites rather than its execution.
+By evaluation the level of CPU utilization, a system can detect thrashing.
+It occurs when the process does not have enough pages due to page fault rate is increased.
+It inhibits much application level processing that causes performance to degrade or collapse.
+
+Real Life Application: Airlines
+Imagine an airline operating multiple flights with limited aircraft available. The airline strives to maximize the utilization of its aircraft wile meeting the demand for flights. How ever due to poor sheduling allocation, the airline may encounter thrashing like scenarios.
+
+Scenarios illustrating thrashing:
+1. High flight demand
+2. Insufficient Aircraft
+3. Overlapping flight Scheduling
+4. Ineffecient TurnAround Time
+5. Increased Delays
+6. Continous Resheduling
+
+_____________________________________________________________________________________________
+
+
+What is Starvation and aging in OS?
+
+When we priority sheduling or shortest job first sheduling, starving can happens.
+
+Starvation: 
+It is generally a problem that occurs when a process has not been able to get the required resources it need for the progress with its execution for a long period of time.
+In this situation low priority process get blocked and only high priority process proceed towards completion because of which low priority processes suffer from lack of resources.
+
+Aging:
+It is a technique that is to overcome the situation or problem of starvation. It simply increases the priority of process that wait in the system for resources for a long period of time.
+
+_____________________________________________________________________________________________
+
+
+What do you mean by cascading termination?
+
+Cascading termination is a process termination in which if the parent process is exiting or termination then the child process will also get terminated. It does not allow the child to continue processing as its parent terminates. It is generally intiated by OS.
+
+_____________________________________________________________________________________________
+
+
+What do you mean by Sockets in OS?
+
+The socket in OS is generally referred to as an end point of IPC.
+Here the end point is referred to as a combination of an IP address and port number.
+Sockets are used to make it easy for software developers to create network-enabled programs.
+It allows communication or exchange information between two different process on the same or different machines.
+It is mostly used in client-server based systems.
+
+Real life application:
+Web Browsing - When you open a web application and access a website, your web application establishes a socket connection with the web application hosting the website.
+This socket connection allows the browser to sent HTTP request to the server and recieve the corresponding HTML, CSS and JS files to render the web page.
+
+Types of Sockets:
+1. Stream Sockets
+2. Data gram Sockets
+3. Sequence Packet Sockets
+4. Raw Sockets
+
+_____________________________________________________________________________________________
+
+
+What is the difference between multi-tasking and multi-processing OS?
+
+Multi-Tasking:
+It is a system that allows more effecient use of computer hardware. This system works on more than one task at a time by rapidly switching between various tasks. These are also known as time-sharing systems.
+
+JOB1					JOB2					JOB3
+ ||					 ||					 ||
+ ||					 ||					 ||
+ --------------------------------------------------------------
+					 ||
+					 OS
+					 ||
+
+				Multi-Tasking
+
+
+Multi-Processing:
+It is a system that allows multiple or various processors in a computer to process 2 or more different portions of the same program simultaneously. It is used to complete more work in a short period of time.
+
+
+  Computer System
+		|
+		|= CPU1
+		|= CPU2
+		|= CPU3
+		|= CPU4
+
+ Multi-Processing
+
+_____________________________________________________________________________________________
+
+
+What do you mean by asymmetric clustering?
+
+Asymmetric clustering is generally a system in which one of the nodes among all nodes is in hot standby node whereas the rest of all nodes run differet applications.
+It simply uses whole or entire hardware resources therefore it is considered a more reliable system as compared to others.
+
+
+
+						              ||-------- NODE(HOT STANDBY MODE)	\	
+						              ||						                     \	  	
+						              ||						                     /		
+						              ||-------- NODE				            /		
+						              ||                					     /==== Cluster
+	USER -------------------||					                     \		
+						              ||-------- NODE				            \
+						              ||						                     \
+						              ||						                    /
+						              ||-------- NODE			             /
+
+_____________________________________________________________________________________________
+
+
+What is paging and segmentation?
+
+Paging:
+It is generally a memory management technique that allows OS to retrieve processes from secondary storage to maintain main memory. It is non-contingous allocation technique that divides each process in to the form of pages.
+
+Segmentation:
+It is generally a memory management technique that divides process into modules and parts of different sizes. These parts and modules are known as segments that can be allocated to process.
+
+_____________________________________________________________________________________________
+
+
+What is Reentracy?
+
+Reentrant is simply a function in which various clients can use and shares a single copy of a program during similar period. This concept is generally associated with OS code ans does not deal with concurrency. It has 2 major functions:
+
+Program code cannot change or modify itself.
+Local data for every client process needs to be stored in different disks.
+
+
+_____________________________________________________________________________________________
+
+
+What is virtual memory?
+
+It is a memory management feature of OS that creates the illusion to users of a very large memory.
+It simple space where a greater number of programs can be stored by themselves in the form of pages.
+It enables us to increase the use of physical memory by using a disk and also allows to have memory protection. It acts a temporary storage that can be used along with RAM for computers.
+
+
+_____________________________________________________________________________________________
+
+
+What is a deadlock in OS? What are the necessary conditions for a dead lock?
+
+Dead lock is generally a situation where a set of process are blocked as eah process is holding resources and waits to acquire resources held by the other process. In this situation, two or more processes simply try to execute simultaneously and wait for each to finish their execution because they are dependent on each other.
